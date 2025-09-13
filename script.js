@@ -128,6 +128,15 @@ function checkHealth() {
         happinessDrain+=0.0005;
     }
 
+    if(hunger == 0) {
+        window.alert("You let Khang Le Starve To Death!");
+    }
+    else if(happiness == 0) {
+        window.alert("You let Khang Le Kill Himself!");
+    }
+    else if(health ==0){
+        window.alert("You let Khang Le Kill Himself!");
+    }
 
         healthBar.style.width = `${Math.round(health)}%`;
 }
@@ -141,20 +150,6 @@ function aging() {
 function doHunger() {
 
     hunger-=1;
-
-}
-
-function die() {
-
-    if(hunger == 0) {
-        window.alert("You let Khang Le Starve To Death!");
-    }
-    else if(happiness == 0) {
-        window.alert("You let Khang Le Kill Himself!");
-    }
-    else if(health ==0){
-        window.alert("You let Khang Le Kill Himself!");
-    }
 
 }
 
@@ -285,7 +280,7 @@ bigMacMeal.addEventListener("click", event => {
         
         moneyAudio.play();
         money-=1000;
-        hunger+=5
+        hunger+=50;
         
     }
     else if(money>=1000 && hunger>50){
@@ -309,12 +304,12 @@ salad.addEventListener("click", event => {
 
     let moneyAudio = new Audio("money.wav");
     let nomoneyAudio = new Audio("nomoney.wav");
-    if(money>=10000){
+    if(money>=5000){
         
         moneyAudio.play();
-        money-=10000;
+        money-=5000;
         hunger=100;
-        health+=10;
+        health+=25;
         
     }
     else{
