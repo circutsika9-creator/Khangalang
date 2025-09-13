@@ -122,9 +122,9 @@ function checkHealth() {
         happinessDrain+=0.0001;
     }
     else if ((hunger>=25 && hunger<50) || (health<50 && health>=25)) {
-        happinessDrain+=0.0005;
+        happinessDrain+=0.00025;
     }
-    else if ((hunger>=25 && hunger<0) || (health<25 && health>=0)) {
+    else if ((hunger>=25 && hunger<0) || (health<25 && health>0)) {
         happinessDrain+=0.0005;
     }
 
