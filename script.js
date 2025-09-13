@@ -128,14 +128,67 @@ function checkHealth() {
         happinessDrain+=0.0005;
     }
 
-    if(hunger == 0) {
-        window.alert("You let Khang Le Starve To Death!");
+    if(hunger <= 0) {
+        window.alert(`You let Khang Le Starve! Money: ${money} Age: ${age}`);
+         happiness = 100;
+ health = 100;
+ age = 0;
+ healthDrain = 0.005;
+ hunger = 100;
+ moneyMultiplier = 1;
+ money = 0;
+ happinessDrain = 0;
+ isFoodClick = -1;
+ isToyClick = -1;
+ isUpgradeClick = -1;
+ multiplier = 1;
+ onAClick = false;
+ onBClick = false;
+ onCClick = false;
+ onDClick = false;
+ onEClick = false;
+
+        
     }
-    else if(happiness == 0) {
-        window.alert("You let Khang Le Kill Himself!");
+    else if(happiness <= 0) {
+        window.alert(`You let Khang Le Kill Himself! Money: ${money} Age: ${age}`);
+                 happiness = 100;
+ health = 100;
+ age = 0;
+ healthDrain = 0.005;
+ hunger = 100;
+ moneyMultiplier = 1;
+ money = 0;
+ happinessDrain = 0;
+ isFoodClick = -1;
+ isToyClick = -1;
+ isUpgradeClick = -1;
+ multiplier = 1;
+ onAClick = false;
+ onBClick = false;
+ onCClick = false;
+ onDClick = false;
+ onEClick = false;
     }
-    else if(health ==0){
-        window.alert("You let Khang Le Kill Himself!");
+    else if(health <= 0){
+        window.alert(`You let Khang Le Die! Money: ${money} Age: ${age}`);
+                 happiness = 100;
+ health = 100;
+ age = 0;
+ healthDrain = 0.005;
+ hunger = 100;
+ moneyMultiplier = 1;
+ money = 0;
+ happinessDrain = 0;
+ isFoodClick = -1;
+ isToyClick = -1;
+ isUpgradeClick = -1;
+ multiplier = 1;
+ onAClick = false;
+ onBClick = false;
+ onCClick = false;
+ onDClick = false;
+ onEClick = false;
     }
 
         healthBar.style.width = `${Math.round(health)}%`;
