@@ -492,7 +492,14 @@ aclick.addEventListener("click", event => {
         onAClick = true;
         aclick.innerHTML = "BOUGHT";
         
-    }
+    } 
+   else if (money<=500){
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
     else if (onAClick || onDClick || onCClick || onEClick || onBClick || (onAClick == false && onBClick == false && false == false && onCClick == false && onDClick == false && onEClick == false)) {
                 nomoneyAudio.play();
         setTimeout(() => {
@@ -501,13 +508,7 @@ aclick.addEventListener("click", event => {
             cantBuyMessage.style.visibility = "visible";
     } 
 
-    else if (money<=500){
-        nomoneyAudio.play();
-        setTimeout(() => {
-            brokeMessage.style.visibility = "hidden";
-    }, 200);
-            brokeMessage.style.visibility = "visible";
-    } 
+
 
 });
 
