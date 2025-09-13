@@ -22,11 +22,18 @@ let airsoftGun = document.getElementById("airsoftGun");
 let buttPlug = document.getElementById("buttPlug");
 let vape = document.getElementById("vape");
 let aclick = document.getElementById("aclick");
+let aminionButton = document.getElementById("aminion");
+let bminionButton = document.getElementById("bminion");
+let cminionButton = document.getElementById("cminion");
+let dminionButton = document.getElementById("dminion");
+let eminionButton = document.getElementById("eminion");
 let bclick = document.getElementById("bclick");
 let cclick = document.getElementById("cclick");
 let dclick = document.getElementById("dclick");
 let eclick = document.getElementById("eclick");
 let cantBuyMessage = document.getElementById("cantBuyMessage");
+let minion = document.getElementById("minion");
+let minionMenu = document.getElementById("minionMenu");
 
 let happiness = 100;
 let health = 100;
@@ -45,9 +52,30 @@ let onBClick = false;
 let onCClick = false;
 let onDClick = false;
 let onEClick = false;
+let isMinionClick = -1;
+let aminion = 0;
+let bminion = 0;
+let cminion = 0;
+let dminion = 0;
+let eminion = 0;
+let hasMinion = false;
 
 brokeMessage.style.visibility = "hidden";
 cantBuyMessage.style.visibility = "hidden";
+
+function minionLabor(){
+
+    if (hasMinion){
+
+        money+=(1*aminion);
+        money+=(2*bminion);
+        money+=(5*cminion);
+        money+=(15*dminion);
+        money+=(50*eminion);
+
+    }
+
+}
 
 function checkHealth() {
 
@@ -127,68 +155,93 @@ function checkHealth() {
     else if ((hunger>=25 && hunger<0) || (health<25 && health>0)) {
         happinessDrain+=0.0005;
     }
+    else if ((hunger>=75) && (health >= 75)){
+        happinessDrain = 0;
+        
+    }
 
     if(hunger <= 0) {
         window.alert(`You let Khang Le Starve! Money: ${money} Age: ${age}`);
-         happiness = 100;
- health = 100;
- age = 0;
- healthDrain = 0.005;
- hunger = 100;
- moneyMultiplier = 1;
- money = 0;
- happinessDrain = 0;
- isFoodClick = -1;
- isToyClick = -1;
- isUpgradeClick = -1;
- multiplier = 1;
- onAClick = false;
- onBClick = false;
- onCClick = false;
- onDClick = false;
- onEClick = false;
+        happiness = 100;
+        health = 100;
+        age = 0;
+        healthDrain = 0.005;
+        hunger = 100;
+        moneyMultiplier = 1;
+        money = 0;
+        happinessDrain = 0;
+        isFoodClick = -1;
+        isToyClick = -1;
+        isUpgradeClick = -1;
+        multiplier = 1;
+        onAClick = false;
+        onBClick = false;
+        onCClick = false;
+        onDClick = false;
+        onEClick = false;
+        isMinionClick = -1;
+        aminion = 0;
+        bminion = 0;
+        cminion = 0;
+        dminion = 0;
+        eminion = 0;
+        hasMinion = false;
 
         
     }
     else if(happiness <= 0) {
         window.alert(`You let Khang Le Kill Himself! Money: ${money} Age: ${age}`);
-                 happiness = 100;
- health = 100;
- age = 0;
- healthDrain = 0.005;
- hunger = 100;
- moneyMultiplier = 1;
- money = 0;
- happinessDrain = 0;
- isFoodClick = -1;
- isToyClick = -1;
- isUpgradeClick = -1;
- multiplier = 1;
- onAClick = false;
- onBClick = false;
- onCClick = false;
- onDClick = false;
- onEClick = false;
+        happiness = 100;
+        health = 100;
+        age = 0;
+        healthDrain = 0.005;
+        hunger = 100;
+        moneyMultiplier = 1;
+        money = 0;
+        happinessDrain = 0;
+        isFoodClick = -1;
+        isToyClick = -1;
+        isUpgradeClick = -1;
+        multiplier = 1;
+        onAClick = false;
+        onBClick = false;
+        onCClick = false;
+        onDClick = false;
+        onEClick = false;
+        isMinionClick = -1;
+        aminion = 0;
+        bminion = 0;
+        cminion = 0;
+        dminion = 0;
+        eminion = 0;
+        hasMinion = false;
     }
     else if(health <= 0){
         window.alert(`You let Khang Le Die! Money: ${money} Age: ${age}`);
-                 happiness = 100;
- health = 100;
- age = 0;
- healthDrain = 0.005;
- hunger = 100;
- moneyMultiplier = 1;
- money = 0;
- happinessDrain = 0;
- isFoodClick = -1;
- isToyClick = -1;
- isUpgradeClick = -1;
- multiplier = 1;
- onAClick = false;
- onBClick = false;
- onCClick = false;
- onDClick = false;
- onEClick = false;
+        happiness = 100;
+        health = 100;
+        age = 0;
+        healthDrain = 0.005;
+        hunger = 100;
+        moneyMultiplier = 1;
+        money = 0;
+        happinessDrain = 0;
+        isFoodClick = -1;
+        isToyClick = -1;
+        isUpgradeClick = -1;
+        multiplier = 1;
+        onAClick = false;
+        onBClick = false;
+        onCClick = false;
+        onDClick = false;
+        onEClick = false;
+        isMinionClick = -1;
+        aminion = 0;
+        bminion = 0;
+        cminion = 0;
+        dminion = 0;
+        eminion = 0;
+        hasMinion = false;
     }
 
         healthBar.style.width = `${Math.round(health)}%`;
@@ -227,6 +280,20 @@ food.addEventListener("click", event => {
     }
     else {
         foodMenu.style.visibility = "hidden";
+    }
+
+});
+
+minion.addEventListener("click", event => {
+
+    let audio = new Audio("click.wav");
+    audio.play();
+    isMinionClick*=-1;
+    if(isMinionClick == 1){
+        minionMenu.style.visibility = "visible";
+    }
+    else {
+        minionMenu.style.visibility = "hidden";
     }
 
 });
@@ -272,7 +339,7 @@ bigMac.addEventListener("click", event => {
         hunger+=0.5;
                health+=0.5;
     }
-    else{
+    else {
         nomoneyAudio.play();
         setTimeout(() => {
             brokeMessage.style.visibility = "hidden";
@@ -636,6 +703,113 @@ eclick.addEventListener("click", event => {
     } 
 
 });
+
+aminionButton.addEventListener("click", event => {
+
+    let moneyAudio = new Audio("money.wav");
+    let nomoneyAudio = new Audio("nomoney.wav");
+    if(money>=500){
+        hasMinion = true;
+        moneyAudio.play();
+        money-=500;
+        aminion+=1;
+    }
+
+    else {
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
+
+});
+
+bminionButton.addEventListener("click", event => {
+
+    let moneyAudio = new Audio("money.wav");
+    let nomoneyAudio = new Audio("nomoney.wav");
+    if(money>=1000){
+        hasMinion = true;
+        moneyAudio.play();
+        money-=1000;
+        bminion+=1;
+    }
+
+    else {
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
+
+});
+
+cminionButton.addEventListener("click", event => {
+
+    let moneyAudio = new Audio("money.wav");
+    let nomoneyAudio = new Audio("nomoney.wav");
+    if(money>=2500){
+        hasMinion = true;
+        moneyAudio.play();
+        money-=2500;
+        cminion+=1;
+    }
+
+    else {
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
+
+});
+
+dminionButton.addEventListener("click", event => {
+
+    let moneyAudio = new Audio("money.wav");
+    let nomoneyAudio = new Audio("nomoney.wav");
+    if(money>=5000){
+        hasMinion = true;
+        moneyAudio.play();
+        money-=5000;
+        dminion+=1;
+    }
+
+    else {
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
+
+});
+
+eminionButton.addEventListener("click", event => {
+
+    let moneyAudio = new Audio("money.wav");
+    let nomoneyAudio = new Audio("nomoney.wav");
+    if(money>=10000){
+        hasMinion = true;
+        moneyAudio.play();
+        money-=10000;
+        eminion+=1;
+    }
+
+    else {
+        nomoneyAudio.play();
+        setTimeout(() => {
+            brokeMessage.style.visibility = "hidden";
+    }, 200);
+            brokeMessage.style.visibility = "visible";
+    } 
+
+});
+
 setInterval(aging, 30000);
 setInterval(checkHealth, 50);
 setInterval(doHunger, 7500);
+setInterval(minionLabor, 2000);
