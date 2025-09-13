@@ -28,13 +28,13 @@ let dclick = document.getElementById("dclick");
 let eclick = document.getElementById("eclick");
 let cantBuyMessage = document.getElementById("cantBuyMessage");
 
-let happiness = 50;
-let health = 60;
+let happiness = 100;
+let health = 100;
 let age = 0;
 let healthDrain = 0.005;
-let hunger = 50;
+let hunger = 100;
 let moneyMultiplier = 1;
-let money = 1000000;
+let money = 0;
 let happinessDrain = 0;
 let isFoodClick = -1;
 let isToyClick = -1;
